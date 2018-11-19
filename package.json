@@ -1,0 +1,23 @@
+{
+  "name": "benhawley.net",
+  "version": "1.0.0",
+  "description": "Personal Portfolio of work",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benhawley7/benhawley.net.git"
+  },
+  "author": "Ben Hawley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benhawley7/benhawley.net/issues"
+  },
+  "homepage": "https://github.com/benhawley7/benhawley.net#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
