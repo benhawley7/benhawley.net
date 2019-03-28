@@ -89,6 +89,9 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
+    .body-content {
+        padding-top: 3rem;
+    }
     .header__content {
         flex-direction: column;
     }
