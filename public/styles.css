@@ -4,12 +4,18 @@
 body {
     display: flex;
     margin: 0;
-    background-color: #eaeaea;
+    background-color: #25212a;
     flex-direction: column;
+    color:#eaeaea;
 }
 
 .body-content {
     margin: 2rem;
+    padding-top: 2rem;
+}
+
+a {
+    color:#eaeaea;
 }
 
 .page-content {
@@ -20,9 +26,9 @@ body {
 }
 
 .header {
-    height: 4rem;
-    background-color: #eeeeee;
-    border-bottom: 7px solid #634295;
+    position: fixed;
+    background-color: #262626;
+    border-bottom: 3px solid #634295;
     width: 100%;
     box-shadow: 0px 5px 24px 0px rgba(0,0,0,0.35);
     display: flex;
@@ -30,24 +36,76 @@ body {
     align-items: center;
 }
 
+.header__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    /* margin-left: 2rem; */
+    /* margin-right: 2rem; */
+    width: 65vw;
+    min-width: 400px;
+}
+
 .header__title {
     flex: 1;
     display: flex;
     align-items: center;
-    color: rgb(29, 29, 29);
+    color:#eaeaea;
     font-weight: bold;
     font-size: 18px;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .header__navigation {
     flex: 1;
     display: flex;
+    height: 100%;
 }
 
-.header__navigation__item{
+.header__navigation__item {
     flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.header__navigation__item--selected a {
+    background: #634295;
+}
+
+.header__navigation__item:hover a {
+    background: #634295;
+}
+
+
+
+.header__navigation__item a {
+    height: 100%;
+    color: #eaeaea;
+    text-decoration: none; /* no underline */
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 400px) {
+    .header__content {
+        flex-direction: column;
+    }
+
+    .header__navigation__item {
+        margin: 5px;
+    }
+
+    .header__navigation__item a {
+        padding: 0.5rem;
+    }
+}
+
+/* .header__navigation__item a {
+    font-weight: bold;
+} */
+
 
 .warning-box {
     display: flex;
@@ -96,11 +154,12 @@ body {
 .content-box__content {
     padding: 1rem;
     font-size: 14px;
-    background: #eeeeee;
+    background: #252525;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     display: flex;
     flex-direction: column;
+    border: 2px solid #634295;
     align-items: center;
 }
 
@@ -115,6 +174,7 @@ body {
     text-align: center;
     padding: 0.5rem;
     background: #d8d8d8;
+    color: black;
     font-size: 18px;
     border-radius: 5px;
 }
