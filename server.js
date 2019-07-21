@@ -1,41 +1,41 @@
+/**
+ * benhawley.net
+ * Personal Portfolio Website
+ *
+ */
+
 "use strict";
 
+/**
+ * server.js
+ * Entry point of application to serve assets
+ *
+ * @author Ben Hawley
+ */
+
+// Required modules
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const fs = require("fs");
 
-const Handlebars = require("handlebars");
-
+// Create an express app
 const app = express();
 
 // Body Parser Middleware
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "dist")));
 
+// On the home route
 app.get("/", (req, res) => {
-    fs.readFile(path.join(__dirname, "templates/main.html"), "utf-8", (err, data) => {
-        const sourceString = data.toString();
-        const template = Handlebars.compile(sourceString);
-        const pageContent = fs.readFileSync(path.join(__dirname, "templates/home.html"));
-        const d = {"pageContent": pageContent};
-        const result = template(d);
-        res.send(result);
-    });
+    res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
-app.get("/memes", async (req, res) => {
-    fs.readFile(path.join(__dirname, "templates/main.html"), "utf-8", (err, data) => {
-        const sourceString = data.toString();
-        const template = Handlebars.compile(sourceString);
-        const pageContent = fs.readFileSync(path.join(__dirname, "templates/memes.html"));
-        const d = {"pageContent": pageContent};
-        const result = template(d);
-        res.send(result);
-    });
+// Every other route
+app.use(function (req, res) {
+    res.sendFile(path.join(__dirname, "dist/index.html"));
 });
 
-// Start the server on port 8437
+// Start the server on port 8371 (BEN)
 app.listen(8371, () => {
     // Server start
     console.log("Server Started on Port 8371");
