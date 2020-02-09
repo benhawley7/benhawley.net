@@ -6,7 +6,7 @@
     --background-color: #262626;
     --mobile-width: 720px;
     --text-color: #ebebeb;
-    font-size: calc(8.5pt + 0.3vw);
+    font-size: calc(9.5pt + 0.2vw);
 }
 
 body {
