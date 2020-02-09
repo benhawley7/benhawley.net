@@ -3,6 +3,10 @@ import ImageCard from "../components/ImageCard.svelte";
 import GridContainer from "../components/GridContainer.svelte";
 
 import {fade, slide} from 'svelte/transition'
+import {onMount} from "svelte";
+onMount(() => {
+    document.title = "Alexa Skills / Ben Hawley";
+})
 
 
 const ccLink = "https://www.amazon.co.uk/Ben-Hawley-Chewbacca-Chat/dp/B078NP7B4F/ref=sr_1_1?keywords=chewbacca+chat&qid=1563573777&s=digital-skills&sr=1-1";

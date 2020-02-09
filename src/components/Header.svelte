@@ -1,7 +1,5 @@
 <script>
-import {link, push, pop, replace, location, querystring} from "svelte-spa-router";
-import active from 'svelte-spa-router/active'
-
+import { link } from "svelte-routing";
 const logo = {
     url: "/header-logo.svg",
     alt: "Supertote Logo"
@@ -40,7 +38,7 @@ const external = [
         <nav class="header__navigation">
             {#each navigation as nav}
                 <div class="header__navigation__item">
-                    <a href={nav.route} use:link use:active={nav.route}>{nav.text}</a>
+                    <a href={nav.route} use:link>{nav.text}</a>
                 </div>
             {/each}
             {#each external as nav}
@@ -102,9 +100,9 @@ const external = [
     justify-content: center;
 }
 
-.header__navigation__item a[active] {
+/* .header__navigation__item a[active] {
     background: var(--highlight-color);
-}
+} */
 
 .header__navigation__item:hover a {
     background: #169d79;

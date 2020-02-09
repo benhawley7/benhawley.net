@@ -1,40 +1,43 @@
 <script>
-    import {link, push, pop, replace, location, querystring} from "svelte-spa-router";
-    import ImageCard from "../components/ImageCard.svelte";
-    import Card from "../components/Card.svelte";
-    import GridContainer from "../components/GridContainer.svelte";
-    import {fade} from 'svelte/transition'
-    import { slide } from 'svelte/transition';
+import { link } from "svelte-routing";
+import ImageCard from "../components/ImageCard.svelte";
+import Card from "../components/Card.svelte";
+import GridContainer from "../components/GridContainer.svelte";
+import {fade} from 'svelte/transition'
+import { slide } from 'svelte/transition';
+import {onMount} from "svelte";
+onMount(() => {
+    document.title = "Home / Ben Hawley";
+})
 
-
-    // Image Card Data
-    const imageURL = "/assets/me-compressed.jpg";
-    const imageAlt = "Picture of me in Spain.";
-    const imageCardData = [
-        {
-            title: "Pwy wyt ti?",
-            content: `
-            <div>
-                <p>There I am in Spain! 🌞</p>
-                <p>I am a graduate of Computer Science from the University of Liverpool.</p>
-                <p>Currently working as a Software Developer at <a href="https://digitaldesignlabs.com">Digital Design Labs Ltd.</a></p>
-            </div>`,
-            background: "standard"
-        },
-        {
-            title: "Thingys", 
-            content: `
-            <div>
-                <p>Some relevant links:</p>
-                <ul>
-                    <li><a href="https://github.com/benhawley7">GitHub</a></li>
-                    <li><a href="https://www.instagram.com/benhawley/">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/in/ben-hawley-5b0235121/">LinkedIn</a></li>
-                </ul>
-            </div>`,
-            background: "highlight"
-        }
-    ];
+// Image Card Data
+const imageURL = "/assets/me-compressed.jpg";
+const imageAlt = "Picture of me in Spain.";
+const imageCardData = [
+    {
+        title: "Pwy wyt ti?",
+        content: `
+        <div>
+            <p>There I am in Spain! 🌞</p>
+            <p>I am a graduate of Computer Science from the University of Liverpool.</p>
+            <p>Currently working as a Software Developer at <a href="https://digitaldesignlabs.com">Digital Design Labs Ltd.</a></p>
+        </div>`,
+        background: "standard"
+    },
+    {
+        title: "Thingys", 
+        content: `
+        <div>
+            <p>Some relevant links:</p>
+            <ul>
+                <li><a href="https://github.com/benhawley7">GitHub</a></li>
+                <li><a href="https://www.instagram.com/benhawley/">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/ben-hawley-5b0235121/">LinkedIn</a></li>
+            </ul>
+        </div>`,
+        background: "highlight"
+    }
+];
 
 </script>
 

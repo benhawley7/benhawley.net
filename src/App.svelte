@@ -1,5 +1,5 @@
 <script>
-	import Router from "svelte-spa-router";
+  	import { Router, Link, Route } from "svelte-routing";
 	import {link, push, pop, replace, location, querystring} from "svelte-spa-router";
 	import Home from "./routes/Home.svelte";
 	import Memes from "./routes/Memes.svelte";
@@ -8,18 +8,7 @@
 	import Header from "./components/Header.svelte";
 	import Footer from "./components/Footer.svelte";
 
-	const routes = {
-		"/": Home,
-		"/memes": Memes,
-		"/alexa": Alexa,
-		"*": NotFound
-	};
-
-	// Handles the "routeLoaded" event dispatched by the router after a route has been successfully loaded
-	function routeLoaded(event) {
-		// eslint-disable-next-line no-console
-		console.info('Caught event routeLoaded', event.detail)
-	}
+	export let url = "";
 
 </script>
 
@@ -28,7 +17,6 @@ main {
     margin: 4rem 5rem;
     min-height: 76vh;
 }
-
 
 @media only screen and (max-width: 720px) {
 main {
@@ -40,7 +28,11 @@ main {
 
 <Header/>
 <main>
-	<Router {routes} on:routeLoaded={routeLoaded}/>
+	<Router url="{url}">
+		<Route path="/" component="{Home}" />
+		<Route path="/memes" component="{Memes}" />
+		<Route path="/alexa" component="{Alexa}" />
+	</Router>
 </main>
 <Footer/>
 

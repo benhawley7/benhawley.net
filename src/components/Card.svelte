@@ -1,6 +1,5 @@
 <script>
 export let title;
-export let content;
 export let alignCenter;
 export let maxWidth;
 
@@ -32,8 +31,10 @@ if (maxWidth) {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     border: 2px solid var(--highlight-color);
-    background: var(--highlight-color-dark);
+    background: var(--highlight-color-alt);
+    background: linear-gradient(90deg, var(--highlight-color-alt) 0%, var(--highlight-color-dark) 100%);
     overflow: hidden;
+    max-width: 50rem;
 }
 
 .content-box--max-width {
@@ -45,7 +46,7 @@ if (maxWidth) {
     padding: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    background: var(--highlight-color-alt);
+    /* background: var(--highlight-color-alt); */
     color: #eeeeee;
     font-weight: bold;
     font-size: 1rem;
@@ -55,7 +56,7 @@ if (maxWidth) {
     display: flex;
     align-items: center;
 }
-
+/* 
 .content-box__title::after {
     content: "";
     position: absolute;
@@ -65,11 +66,7 @@ if (maxWidth) {
     height: 3rem;
     right: -1rem;
     clip-path: polygon(0 0, 100% 0%, 40% 100%, 0% 100%);
-}
-
-.content-box--center .content-box__content .content-box__content__row {
-    justify-content: center;
-}
+} */
 
 .content-box__content {
     padding: 1rem;
