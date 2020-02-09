@@ -1,8 +1,8 @@
 # benhawley.net
 Personal Website and Porfolio of Work
 
-## Built in Preact
-As a learning project, I have reimplemented the website in Preact.
+## Built in Svelte
+As a learning project, I have reimplemented the website in Svelte.
 
 ## How do I... ?
 ### Checkout and install
@@ -13,7 +13,7 @@ cd ben-hawley.net && npm install
 
 ### Build
 ```bash
-npm run-script build
+npm run build
 ```
 
 ### Start the Server
@@ -21,16 +21,14 @@ npm run-script build
 npm start
 ```
 
-### Start the Server with Parcel (Development)
+### Start the Server for Developer
 ```bash
-npm run-script start-parcel
+npm run dev
 ```
 
 ## What do now?
-- [x] Implement in Preact
+- [x] Implement in Svelte
 - [ ] Comment Stuff
-- [ ] Set Up Eslint Config to work properly with Preact
-- [ ] Create a better build process (which isn't Parcel)
 - [ ] Set Up Server Side Rendering
 - [ ] Set Up Offline Mode with Service Worker
 - [ ] Implement as PWA
