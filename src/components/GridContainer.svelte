@@ -16,4 +16,10 @@
         grid-template-columns: auto;
     }
 }
+
+@media only screen and (min-width: 50rem) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 </style>

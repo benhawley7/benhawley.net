@@ -16,14 +16,18 @@ const navigation = [
     {
         text: "Memes",
         route: "/memes"
+    },
+    {
+        text: "Travel",
+        route: "/travel"
     }
 ]
 
 const external = [
-    {
-        text: "Blog",
-        route: "https://medium.com/@benhawley7"
-    },
+    // {
+    //     text: "Blog",
+    //     route: "https://medium.com/@benhawley7"
+    // },
     {
         text: "Pacman",
         route: "https://pacman.benhawley.net"

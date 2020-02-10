@@ -1,14 +1,20 @@
 <script>
-  	import { Router, Link, Route } from "svelte-routing";
-	import {link, push, pop, replace, location, querystring} from "svelte-spa-router";
+	import { Router, Link, Route } from "svelte-routing";
 	import Home from "./routes/Home.svelte";
 	import Memes from "./routes/Memes.svelte";
 	import Alexa from "./routes/Alexa.svelte";
+	import Travel from "./routes/Travel.svelte";
 	import NotFound from "./routes/NotFound.svelte";
 	import Header from "./components/Header.svelte";
 	import Footer from "./components/Footer.svelte";
+	import { chartsReady } from "./stores.js";
+
 
 	export let url = "";
+
+	function chartsLoaded() {
+		chartsReady.set(true);
+	}
 
 </script>
 
@@ -26,12 +32,18 @@ main {
 }
 </style>
 
+<svelte:head>
+	<script defer async on:load={chartsLoaded} src="https://www.gstatic.com/charts/loader.js">
+	</script>
+</svelte:head>
+
 <Header/>
 <main>
 	<Router url="{url}">
 		<Route path="/" component="{Home}" />
 		<Route path="/memes" component="{Memes}" />
 		<Route path="/alexa" component="{Alexa}" />
+		<Route path="/travel" component="{Travel}" />
 	</Router>
 </main>
 <Footer/>
