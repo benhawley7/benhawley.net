@@ -2930,7 +2930,7 @@ var app = (function () {
     	}
     }
 
-    const t={up:["̍","̎","̄","̅","̿","̑","̆","̐","͒","͗","͑","̇","̈","̊","͂","̓","̈́","͊","͋","͌","̃","̂","̌","͐","̀","́","̋","̏","̒","̓","̔","̽","̉","ͣ","ͤ","ͥ","ͦ","ͧ","ͨ","ͩ","ͪ","ͫ","ͬ","ͭ","ͮ","ͯ","̾","͛","͆","̚"],middle:["̕","̛","̀","́","͘","̡","̢","̧","̨","̴","̵","̶","͏","͜","͝","͞","͟","͠","͢","̸","̷","͡","҉"],down:["̖","̗","̘","̙","̜","̝","̞","̟","̠","̤","̥","̦","̩","̪","̫","̬","̭","̮","̯","̰","̱","̲","̳","̹","̺","̻","̼","ͅ","͇","͈","͉","͍","͎","͓","͔","͕","͖","͙","͚","̣"]};t.all=[...t.up,...t.middle,...t.down],t.pattern=RegExp(`(${t.all.join("|")})`,"g");class e extends Error{constructor(t){super(t),this.message=t,this.name="ZalgoError",this.stack="";}}const n=t=>{const e=/([\uD800-\uDBFF])([\uDC00-\uDFFF])([\uD800-\uDBFF])?([\uDC00-\uDFFF])?|([0-9])?([\0-\u02FF\u0370-\u1AAF\u1B00-\u1DBF\u1E00-\u20CF\u2100-\uD7FF\uE000-\uFE1F\uFE30-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])([\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F\uFE0F]+)/g,n=t.replace(e,"•").split("");let u,i=0;for(;u=e.exec(t);)u.index-=i,i+=u[0].length-1,n.splice(u.index,1,u[0]);return n},u=(t,e)=>t&&t[e],i=t=>~~(Math.random()*t),r=(r,o={up:!0,middle:!0,down:!0,size:""})=>{try{if(!r)throw new Error("no_input");if("string"!=typeof r)throw new Error("not_a_string");u(o,"up")||(o.up=!0),u(o,"middle")||(o.middle=!0),u(o,"down")||(o.down=!0),u(o,"size")||(o.size="");const e=n(r),s=e.length;let F,p="";const d=[];u(o,"up")&&d.push("up"),u(o,"middle")&&d.push("middle"),u(o,"down")&&d.push("down");for(let n=0;n<s;n++)if(!t.pattern.test(e[n]))if(e[n].length>1)p+=e[n];else{F={up:0,middle:0,down:0},F="mini"===o.size?{up:i(8),middle:i(2),down:i(8)}:"maxi"===o.size?{up:i(16)+3,middle:i(4)+1,down:i(64)+3}:{up:i(8)+1,middle:i(3),down:i(8)+1},p+=r[n];for(let e=0,n=d.length;e<n;e++){const n=d[e];let u=F[n];const r=t[n],o=r.length-1;for(;u--;)p+=r[i(o)];}}return p}catch(t){if(/(?:no_input)/i.test(t.toString()))throw new e("The zalgo function at least requires some text as input!");if(/(?:not_a_string)/i.test(t.toString()))throw new e("The zalgo function expects input of type string as first argument!");throw t}};
+    const t={up:["̍","̎","̄","̅","̿","̑","̆","̐","͒","͗","͑","̇","̈","̊","͂","̓","̈́","͊","͋","͌","̃","̂","̌","͐","̀","́","̋","̏","̒","̓","̔","̽","̉","ͣ","ͤ","ͥ","ͦ","ͧ","ͨ","ͩ","ͪ","ͫ","ͬ","ͭ","ͮ","ͯ","̾","͛","͆","̚"],middle:["̕","̛","̀","́","͘","̡","̢","̧","̨","̴","̵","̶","͏","͜","͝","͞","͟","͠","͢","̸","̷","͡","҉"],down:["̖","̗","̘","̙","̜","̝","̞","̟","̠","̤","̥","̦","̩","̪","̫","̬","̭","̮","̯","̰","̱","̲","̳","̹","̺","̻","̼","ͅ","͇","͈","͉","͍","͎","͓","͔","͕","͖","͙","͚","̣"]};t.all=[...t.up,...t.middle,...t.down],t.pattern=RegExp(`(${t.all.join("|")})`,"g");class e extends Error{constructor(t){super(t),this.message=t,this.name="ZalgoError",this.stack="";}}const n=t=>{const e=/([\uD800-\uDBFF])([\uDC00-\uDFFF])([\uD800-\uDBFF])?([\uDC00-\uDFFF])?|([0-9])?([\0-\u02FF\u0370-\u1AAF\u1B00-\u1DBF\u1E00-\u20CF\u2100-\uD7FF\uE000-\uFE1F\uFE30-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])([\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F\uFE0F]+)/g,n=t.replace(e,"•").split("");let u,i=0;for(;u=e.exec(t);)u.index-=i,i+=u[0].length-1,n.splice(u.index,1,u[0]);return n},u=(t,e)=>t&&t[e],i=t=>~~(Math.random()*t),r=(r,o={up:!0,middle:!0,down:!0,size:""})=>{try{if(!r)throw new Error("no_input");if("string"!=typeof r)throw new Error("not_a_string");u(o,"up")||(o.up=!0),u(o,"middle")||(o.middle=!0),u(o,"down")||(o.down=!0),u(o,"size")||(o.size="");const e=n(r),s=e.length;let F,p="";const d=[];u(o,"up")&&d.push("up"),u(o,"middle")&&d.push("middle"),u(o,"down")&&d.push("down");for(let n=0;n<s;n++)if(!t.pattern.test(e[n]))if(e[n].length>1)p+=e[n];else{F={up:0,middle:0,down:0},F="mini"===o.size?{up:i(8),middle:i(2),down:i(8)}:"maxi"===o.size?{up:i(16)+3,middle:i(4)+1,down:i(64)+3}:{up:i(8)+1,middle:i(3),down:i(8)+1},p+=r[n];for(let e=0,n=d.length;e<n;e++){const n=d[e];let u=F[n];const r=t[n],o=r.length-1;for(;u--;)p+=r[i(o)];}}return p}catch(t){if(/(?:no_input)/i.test(t.toString()))throw new e("The zalgo function at least requires some text as input!");if(/(?:not_a_string)/i.test(t.toString()))throw new e("The zalgo function expects input of type string as first argument!");throw t}};//# sourceMappingURL=index.es.js.map
 
     function getSpacedMemeText(text, upperCase) {
         text = upperCase ? text.toUpperCase() : text.toLowerCase();
@@ -2947,9 +2947,9 @@ var app = (function () {
         });
     }
 
-    function getInsertedCowboyMemeText(text, upperCase) {
+    function getInsertedMemeText(text, upperCase, insertion) {
         text = upperCase ? text.toUpperCase() : text.toLowerCase();
-        return ["🤠 ", ...text.split(" ").join(" 🤠 ").split(), " 🤠"].join("");
+        return [`${insertion} `, ...text.split(" ").join(` ${insertion} `).split(), ` ${insertion}`].join("");
     }
 
     function getZalgoText(text, upperCase) {
@@ -2957,12 +2957,12 @@ var app = (function () {
         return r(text);
     }
 
-    function getMemeTextByType(text, upperCase, memeType) {
+    function getMemeTextByType(text, upperCase, memeType, insertion) {
         memeType = memeType || "Inverted";
         if (memeType === "Spaced") {
             return getSpacedMemeText(text, upperCase);
-        } else if (memeType === "Cowboy") {
-            return getInsertedCowboyMemeText(text, upperCase);
+        } else if (memeType === "Inserted") {
+            return getInsertedMemeText(text, upperCase, insertion);
         } else if (memeType === "Zalgo") {
             return getZalgoText(text, upperCase);
         } else {
@@ -2973,7 +2973,7 @@ var app = (function () {
 
 
     function getAvailableTypes() {
-        return ["Inverted", "Spaced", "Cowboy", "Zalgo"];
+        return ["Inverted", "Spaced", "Inserted", "Zalgo"];
     }
 
     var MemeText = {
@@ -3269,7 +3269,60 @@ var app = (function () {
     /* src/components/MemeTextGenerator.svelte generated by Svelte v3.18.1 */
     const file$5 = "src/components/MemeTextGenerator.svelte";
 
-    // (38:0) <Card title="Lets meme some strings.">
+    // (45:4) {#if selected === "Inserted"}
+    function create_if_block$1(ctx) {
+    	let p;
+    	let t1;
+    	let input;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Choose your insertion.";
+    			t1 = space();
+    			input = element("input");
+    			add_location(p, file$5, 45, 8, 1183);
+    			attr_dev(input, "type", "text");
+    			attr_dev(input, "class", "meme-text-input meme-text-input--center svelte-f0ubxc");
+    			add_location(input, file$5, 46, 8, 1221);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*insertion*/ ctx[2]);
+
+    			dispose = [
+    				listen_dev(input, "input", /*input_input_handler_1*/ ctx[11]),
+    				listen_dev(input, "keyup", /*updateMemeText*/ ctx[7], false, false, false)
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*insertion*/ 4 && input.value !== /*insertion*/ ctx[2]) {
+    				set_input_value(input, /*insertion*/ ctx[2]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(input);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(45:4) {#if selected === \\\"Inserted\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (37:0) <Card title="Lets meme some strings.">
     function create_default_slot$1(ctx) {
     	let p0;
     	let t1;
@@ -3282,21 +3335,22 @@ var app = (function () {
     	let t5;
     	let button0;
     	let t7;
+    	let t8;
     	let p2;
-    	let t9;
-    	let textarea;
     	let t10;
+    	let textarea;
+    	let t11;
     	let button1;
     	let current;
     	let dispose;
 
     	function radioselector_selected_binding(value) {
-    		/*radioselector_selected_binding*/ ctx[8].call(null, value);
+    		/*radioselector_selected_binding*/ ctx[9].call(null, value);
     	}
 
     	let radioselector_props = {
-    		name: /*name*/ ctx[4],
-    		options: /*types*/ ctx[3]
+    		name: /*name*/ ctx[5],
+    		options: /*types*/ ctx[4]
     	};
 
     	if (/*selected*/ ctx[0] !== void 0) {
@@ -3309,7 +3363,8 @@ var app = (function () {
     		});
 
     	binding_callbacks.push(() => bind(radioselector, "selected", radioselector_selected_binding));
-    	radioselector.$on("change", /*updateMemeText*/ ctx[6]);
+    	radioselector.$on("change", /*updateMemeText*/ ctx[7]);
+    	let if_block = /*selected*/ ctx[0] === "Inserted" && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -3327,28 +3382,30 @@ var app = (function () {
     			button0 = element("button");
     			button0.textContent = "Flip";
     			t7 = space();
+    			if (if_block) if_block.c();
+    			t8 = space();
     			p2 = element("p");
     			p2.textContent = "Copy dem memes.";
-    			t9 = space();
-    			textarea = element("textarea");
     			t10 = space();
+    			textarea = element("textarea");
+    			t11 = space();
     			button1 = element("button");
     			button1.textContent = "Copy";
-    			add_location(p0, file$5, 38, 4, 757);
-    			add_location(p1, file$5, 40, 4, 883);
+    			add_location(p0, file$5, 37, 4, 788);
+    			add_location(p1, file$5, 39, 4, 914);
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "class", "meme-text-input svelte-7543un");
-    			add_location(input, file$5, 42, 8, 942);
+    			attr_dev(input, "class", "meme-text-input svelte-f0ubxc");
+    			add_location(input, file$5, 41, 8, 973);
     			attr_dev(button0, "class", "button");
-    			add_location(button0, file$5, 43, 8, 1044);
-    			attr_dev(div, "class", "input-box svelte-7543un");
-    			add_location(div, file$5, 41, 4, 910);
-    			add_location(p2, file$5, 45, 4, 1114);
-    			attr_dev(textarea, "class", "meme-text-output__text js-meme-output svelte-7543un");
-    			textarea.value = /*memeText*/ ctx[2];
-    			add_location(textarea, file$5, 46, 4, 1141);
+    			add_location(button0, file$5, 42, 8, 1075);
+    			attr_dev(div, "class", "input-box svelte-f0ubxc");
+    			add_location(div, file$5, 40, 4, 941);
+    			add_location(p2, file$5, 49, 4, 1354);
+    			attr_dev(textarea, "class", "meme-text-output__text js-meme-output svelte-f0ubxc");
+    			textarea.value = /*memeText*/ ctx[3];
+    			add_location(textarea, file$5, 50, 4, 1381);
     			attr_dev(button1, "class", "button");
-    			add_location(button1, file$5, 47, 4, 1223);
+    			add_location(button1, file$5, 51, 4, 1463);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -3363,17 +3420,19 @@ var app = (function () {
     			append_dev(div, t5);
     			append_dev(div, button0);
     			insert_dev(target, t7, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, t8, anchor);
     			insert_dev(target, p2, anchor);
-    			insert_dev(target, t9, anchor);
-    			insert_dev(target, textarea, anchor);
     			insert_dev(target, t10, anchor);
+    			insert_dev(target, textarea, anchor);
+    			insert_dev(target, t11, anchor);
     			insert_dev(target, button1, anchor);
     			current = true;
 
     			dispose = [
-    				listen_dev(input, "input", /*input_input_handler*/ ctx[9]),
-    				listen_dev(input, "keyup", /*updateMemeText*/ ctx[6], false, false, false),
-    				listen_dev(button0, "click", /*onFlip*/ ctx[5], false, false, false),
+    				listen_dev(input, "input", /*input_input_handler*/ ctx[10]),
+    				listen_dev(input, "keyup", /*updateMemeText*/ ctx[7], false, false, false),
+    				listen_dev(button0, "click", /*onFlip*/ ctx[6], false, false, false),
     				listen_dev(button1, "click", onCopy, false, false, false)
     			];
     		},
@@ -3392,8 +3451,21 @@ var app = (function () {
     				set_input_value(input, /*inputText*/ ctx[1]);
     			}
 
-    			if (!current || dirty & /*memeText*/ 4) {
-    				prop_dev(textarea, "value", /*memeText*/ ctx[2]);
+    			if (/*selected*/ ctx[0] === "Inserted") {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					if_block.m(t8.parentNode, t8);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (!current || dirty & /*memeText*/ 8) {
+    				prop_dev(textarea, "value", /*memeText*/ ctx[3]);
     			}
     		},
     		i: function intro(local) {
@@ -3414,10 +3486,12 @@ var app = (function () {
     			if (detaching) detach_dev(t4);
     			if (detaching) detach_dev(div);
     			if (detaching) detach_dev(t7);
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(t8);
     			if (detaching) detach_dev(p2);
-    			if (detaching) detach_dev(t9);
-    			if (detaching) detach_dev(textarea);
     			if (detaching) detach_dev(t10);
+    			if (detaching) detach_dev(textarea);
+    			if (detaching) detach_dev(t11);
     			if (detaching) detach_dev(button1);
     			run_all(dispose);
     		}
@@ -3427,7 +3501,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(38:0) <Card title=\\\"Lets meme some strings.\\\">",
+    		source: "(37:0) <Card title=\\\"Lets meme some strings.\\\">",
     		ctx
     	});
 
@@ -3460,7 +3534,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const card_changes = {};
 
-    			if (dirty & /*$$scope, memeText, inputText, selected*/ 1031) {
+    			if (dirty & /*$$scope, memeText, insertion, selected, inputText*/ 4111) {
     				card_changes.$$scope = { dirty, ctx };
     			}
 
@@ -3502,6 +3576,7 @@ var app = (function () {
     	let selected;
     	let name = "meme-text-choice";
     	let inputText = "Here is some sample text for y'all.";
+    	let insertion = "🤠";
     	let memeText = "";
     	let flip = false;
 
@@ -3511,7 +3586,7 @@ var app = (function () {
     	}
 
     	async function updateMemeText() {
-    		$$invalidate(2, memeText = MemeText.getMemeTextByType(inputText, flip, selected));
+    		$$invalidate(3, memeText = MemeText.getMemeTextByType(inputText, flip, selected, insertion));
     	}
 
     	updateMemeText();
@@ -3526,21 +3601,28 @@ var app = (function () {
     		$$invalidate(1, inputText);
     	}
 
+    	function input_input_handler_1() {
+    		insertion = this.value;
+    		$$invalidate(2, insertion);
+    	}
+
     	$$self.$capture_state = () => {
     		return {};
     	};
 
     	$$self.$inject_state = $$props => {
     		if ("selected" in $$props) $$invalidate(0, selected = $$props.selected);
-    		if ("name" in $$props) $$invalidate(4, name = $$props.name);
+    		if ("name" in $$props) $$invalidate(5, name = $$props.name);
     		if ("inputText" in $$props) $$invalidate(1, inputText = $$props.inputText);
-    		if ("memeText" in $$props) $$invalidate(2, memeText = $$props.memeText);
+    		if ("insertion" in $$props) $$invalidate(2, insertion = $$props.insertion);
+    		if ("memeText" in $$props) $$invalidate(3, memeText = $$props.memeText);
     		if ("flip" in $$props) flip = $$props.flip;
     	};
 
     	return [
     		selected,
     		inputText,
+    		insertion,
     		memeText,
     		types,
     		name,
@@ -3548,7 +3630,8 @@ var app = (function () {
     		updateMemeText,
     		flip,
     		radioselector_selected_binding,
-    		input_input_handler
+    		input_input_handler,
+    		input_input_handler_1
     	];
     }
 

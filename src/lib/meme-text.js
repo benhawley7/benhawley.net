@@ -15,9 +15,9 @@ function getInvertedMemeText(text, upperCase) {
     });
 }
 
-function getInsertedCowboyMemeText(text, upperCase) {
+function getInsertedMemeText(text, upperCase, insertion) {
     text = upperCase ? text.toUpperCase() : text.toLowerCase();
-    return ["🤠 ", ...text.split(" ").join(" 🤠 ").split(), " 🤠"].join("");
+    return [`${insertion} `, ...text.split(" ").join(` ${insertion} `).split(), ` ${insertion}`].join("");
 }
 
 function getZalgoText(text, upperCase) {
@@ -25,12 +25,12 @@ function getZalgoText(text, upperCase) {
     return zalgo(text);
 }
 
-function getMemeTextByType(text, upperCase, memeType) {
+function getMemeTextByType(text, upperCase, memeType, insertion) {
     memeType = memeType || "Inverted";
     if (memeType === "Spaced") {
         return getSpacedMemeText(text, upperCase);
-    } else if (memeType === "Cowboy") {
-        return getInsertedCowboyMemeText(text, upperCase);
+    } else if (memeType === "Inserted") {
+        return getInsertedMemeText(text, upperCase, insertion);
     } else if (memeType === "Zalgo") {
         return getZalgoText(text, upperCase);
     } else {
@@ -41,7 +41,7 @@ function getMemeTextByType(text, upperCase, memeType) {
 
 
 function getAvailableTypes() {
-    return ["Inverted", "Spaced", "Cowboy", "Zalgo"];
+    return ["Inverted", "Spaced", "Inserted", "Zalgo"];
 }
 
 export default {
