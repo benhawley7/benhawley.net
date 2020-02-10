@@ -7,6 +7,7 @@ export let imageCardData;
 export let responsive = true;
 
 </script>
+
 <div class="image-card" left={imageLeft} {responsive}>
     <div class="image-card__img-container">
         <a href={url}>
@@ -22,7 +23,6 @@ export let responsive = true;
         {/each}
     </div>
 </div>
-
 
 <style>
 .image-card {

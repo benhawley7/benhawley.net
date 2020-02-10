@@ -41,7 +41,7 @@ const imageCardData = [
 
 </script>
 
-<div in:fade|slide="{{duration: 300}}">
+<div in:fade="{{duration: 300}}">
     <h1>Home</h1>
     <h2>About Me</h2>
     <ImageCard url="https://github.com/benhawley7" {imageAlt} {imageURL} {imageCardData}/>

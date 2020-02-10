@@ -19,10 +19,10 @@ main {
 }
 
 @media only screen and (max-width: 720px) {
-main {
-	margin: 4.5rem 1rem;
-	min-height: 78vh;
-}
+	main {
+		margin: 4.5rem 1rem;
+		min-height: 78vh;
+	}
 }
 </style>
 

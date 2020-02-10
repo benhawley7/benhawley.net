@@ -30,6 +30,9 @@ async function updateMemeText() {
     memeText = MemeText.getMemeTextByType(inputText, flip, selected, insertion);
 }
 
+function select(evt) {
+    evt.target.select();
+}
 
 updateMemeText();
 </script>
@@ -39,7 +42,7 @@ updateMemeText();
     <RadioSelector {name} options={types} bind:selected={selected} on:change={updateMemeText}/>
     <p>Type your text.</p>
     <div class="input-box">
-        <input type="text" bind:value={inputText} class="meme-text-input" on:keyup={updateMemeText}/>
+        <input type="text" bind:value={inputText} class="meme-text-input" on:focus={select} on:keyup={updateMemeText}/>
         <button class="button" on:click={onFlip}>Flip</button>
     </div>
     {#if selected === "Inserted"}
