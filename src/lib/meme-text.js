@@ -25,17 +25,23 @@ function getZalgoText(text, upperCase) {
     return zalgo(text);
 }
 
-function getMemeTextByType(text, upperCase, memeType, insertion) {
-    memeType = memeType || "Inverted";
-    if (memeType === "Spaced") {
-        return getSpacedMemeText(text, upperCase);
-    } else if (memeType === "Inserted") {
-        return getInsertedMemeText(text, upperCase, insertion);
-    } else if (memeType === "Zalgo") {
-        return getZalgoText(text, upperCase);
-    } else {
-        return getInvertedMemeText(text, upperCase);
+function getMemeTextByType(text, upperCase, memeTypes, insertion) {
+    if (!Array.isArray(memeTypes)) {
+        memeTypes = [memeTypes];
     }
+    if (memeTypes.includes("Inserted")) {
+        text = getInsertedMemeText(text, upperCase, insertion);
+    }
+    if (memeTypes.includes("Spaced")) {
+        text = getSpacedMemeText(text, upperCase);
+    }
+    if (memeTypes.includes("Zalgo")) {
+        text = getZalgoText(text, upperCase);
+    }
+    if (memeTypes.includes("Inverted")) {
+        text = getInvertedMemeText(text, upperCase);
+    }
+    return text;
 }
 
 

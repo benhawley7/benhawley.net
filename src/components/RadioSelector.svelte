@@ -1,25 +1,22 @@
 <script>
 import { createEventDispatcher, onMount } from 'svelte';
-
-
-
 export let options;
 export let name;
-export let selected;
-let group;
-
-onMount(() => {
-    if (selected) {
-        group = selected;
-    }
-})
-
+export let selected = [];
+export let multiple;
 const dispatch = createEventDispatcher();
-function onClick() {
-    selected = group;
-    dispatch("change");
-}
 </script>
+
+<div class="radio-selector">
+    {#each options as option}
+        {#if multiple}
+            <input type="checkbox" id={option} bind:group={selected} name={option} value={option} on:change={() => dispatch("change")}>
+        {:else}
+            <input type="radio" id={option} name={name} bind:group={selected} value={option} on:change={() => dispatch("change")}>
+        {/if}
+        <label class="radio-selector__button" for={option}>{option}</label>
+    {/each}
+</div>
 
 <style>
 
@@ -50,11 +47,8 @@ input[type=radio]:checked + label {
     color: white;
 }
 
+input[type=checkbox]:checked + label {
+    background-color: var(--highlight-color);
+    color: white;
+}
 </style>
-
-<div class="radio-selector">
-    {#each options as option}
-        <input type="radio" id={option} name={name} bind:group={group} value={option} on:change={onClick}>
-        <label class="radio-selector__button" for={option}>{option}</label>
-    {/each}
-</div>

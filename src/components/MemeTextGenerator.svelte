@@ -8,7 +8,7 @@ import { onMount, tick } from 'svelte';
 
 const types = MemeText.getAvailableTypes();
 
-let selected; 
+let selected = ["Inverted"]; 
 let name = "meme-text-choice"
 let inputText = "Here is some sample text for y'all.";
 let insertion = "🤠";
@@ -39,13 +39,13 @@ updateMemeText();
 
 <Card title="Lets meme some strings.">
     <p>Choose your style.</p>
-    <RadioSelector {name} options={types} bind:selected={selected} on:change={updateMemeText}/>
+    <RadioSelector multiple="true" {name} options={types} bind:selected={selected} on:change={updateMemeText}/>
     <p>Type your text.</p>
     <div class="input-box">
         <input type="text" bind:value={inputText} class="meme-text-input" on:focus={select} on:keyup={updateMemeText}/>
         <button class="button" on:click={onFlip}>Flip</button>
     </div>
-    {#if selected === "Inserted"}
+    {#if selected.includes("Inserted")}
         <p>Choose your insertion.</p>
         <input type="text" bind:value={insertion} class="meme-text-input meme-text-input--center" on:keyup={updateMemeText}/>
     {/if}
