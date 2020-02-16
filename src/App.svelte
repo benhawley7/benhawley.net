@@ -7,13 +7,16 @@
 	import NotFound from "./routes/NotFound.svelte";
 	import Header from "./components/Header.svelte";
 	import Footer from "./components/Footer.svelte";
-	import { chartsReady } from "./stores.js";
+	import { chartsReady, mapsReady } from "./stores.js";
 
 
 	export let url = "";
 
 	function chartsLoaded() {
 		chartsReady.set(true);
+	}
+	function mapsLoaded() {
+		mapsReady.set(true);
 	}
 
 </script>
@@ -35,6 +38,8 @@ main {
 <svelte:head>
 	<script defer async on:load={chartsLoaded} src="https://www.gstatic.com/charts/loader.js">
 	</script>
+	<script defer async on:load={mapsLoaded}
+		src="https://maps.googleapis.com/maps/api/js?key="></script>
 </svelte:head>
 
 <Header/>

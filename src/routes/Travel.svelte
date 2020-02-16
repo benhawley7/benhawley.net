@@ -1,16 +1,21 @@
 <script>
-import Map from "../components/Map.svelte";
+import TravelChart from "../components/TravelChart.svelte";
+import InterrailMap from "../components/InterrailMap.svelte";
 import { onMount } from "svelte";
 import {fade} from "svelte/transition";
-import { chartsReady } from "../stores.js";
+import { chartsReady, mapsReady } from "../stores.js";
 
-onMount(() => {
-    console.log("Mounted", new Date().getMilliseconds());
-});
-let scriptLoaded = false;
+let chartsLoaded = false;
 chartsReady.subscribe(value => {
     if (value) {
-        scriptLoaded = true;
+        chartsLoaded = true;
+    }
+});
+
+let mapsLoaded = false;
+mapsReady.subscribe(value => {
+    if (value) {
+        mapsLoaded = true;
     }
 });
 
@@ -18,9 +23,17 @@ chartsReady.subscribe(value => {
 
 <div in:fade={300}>
     <h1>Travel</h1>
-    <p>I wanted to mess around with the Google Maps and Charts API. So here is every country I've been to.</p>
-    {#if scriptLoaded}
-        <Map/>
+    <h2>Interrail 2020</h2>
+    <p>Planned route for Interail Trip in Spring 2020.</p>
+    {#if mapsLoaded}
+        <InterrailMap/>
+    {:else}
+        <p>Loading that map for you...</p>
+    {/if}
+    <h2>Where have I been?</h2>
+    <p>I wanted to mess with the Google Charts and Maps API so made this.</p> 
+    {#if chartsLoaded}
+        <TravelChart/>
     {:else}
         <p>Loading that map for you...</p>
     {/if}

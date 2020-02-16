@@ -22,7 +22,8 @@
                 ["France"],
                 ["Spain"],
                 ["Greece"],
-                ["Italy"]
+                ["Italy"],
+                ["Turkey"]
             ]);
 
             var options = {
@@ -45,11 +46,18 @@
 <style>
 .map-container {
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map {
     width: 100%;
+    max-width: 50rem;
 }
 
 .loading {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-top: 3rem;
 }
 </style>
@@ -57,4 +65,7 @@
 {#if !mapLoaded}
     <p class="loading">Loading that Map for you.</p>
 {/if}
-<div class="map-container" in:fade={300} bind:this={container}></div>
+<div class="map-container"  in:fade={300}>
+    <div class="map" bind:this={container}></div>
+</div>
+
