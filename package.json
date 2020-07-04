@@ -23,20 +23,25 @@
   },
   "homepage": "https://github.com/benhawley7/benhawley.net#readme",
   "dependencies": {
-    "@rollup/plugin-commonjs": "^11.0.0",
-    "@rollup/plugin-node-resolve": "^7.0.0",
     "express": "^4.16.4",
     "luxon": "^1.22.0",
+    "svelte": "^3.0.0",
+    "svelte-routing": "^1.4.0",
+    "svelte-spa-router": "^2.0.0",
+    "@favware/zalgo": "^1.1.4"
+  },
+  "devDependencies": {
+    "@puntt/eslint-config": "0.0.6",
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "prettier": "^2.0.5",
+    "prettier-plugin-svelte": "^1.1.0",
     "rollup": "^1.20.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0",
-    "svelte-routing": "^1.4.0",
-    "svelte-spa-router": "^2.0.0"
-  },
-  "devDependencies": {
-    "@favware/zalgo": "^1.1.4",
     "sirv-cli": "^0.4.4"
   }
 }

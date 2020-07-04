@@ -6,7 +6,7 @@ function getSpacedMemeText(text, upperCase) {
 }
 
 function getInvertedMemeText(text, upperCase) {
-    return ["", ...text].reduce((acc , char) => {
+    return ["", ...text].reduce((acc, char) => {
         if (char.match(/[A-Za-z]/)) {
             char = upperCase ? char.toUpperCase() : char.toLowerCase();
             upperCase = !upperCase;
@@ -17,7 +17,16 @@ function getInvertedMemeText(text, upperCase) {
 
 function getInsertedMemeText(text, upperCase, insertion) {
     text = upperCase ? text.toUpperCase() : text.toLowerCase();
-    return [`${insertion} `, ...text.split(" ").join(` ${insertion} `).split(), ` ${insertion}`].join("");
+    return [
+        `${insertion} `,
+        ...text.split(" ").join(` ${insertion} `).split(),
+        ` ${insertion}`,
+    ].join("");
+}
+
+function getReversedText(text) {
+    text = text.split("").reverse().join("");
+    return text;
 }
 
 function getZalgoText(text, upperCase) {
@@ -28,6 +37,9 @@ function getZalgoText(text, upperCase) {
 function getMemeTextByType(text, upperCase, memeTypes, insertion) {
     if (!Array.isArray(memeTypes)) {
         memeTypes = [memeTypes];
+    }
+    if (memeTypes.includes("Reversed")) {
+        text = getReversedText(text);
     }
     if (memeTypes.includes("Inserted")) {
         text = getInsertedMemeText(text, upperCase, insertion);
@@ -44,15 +56,13 @@ function getMemeTextByType(text, upperCase, memeTypes, insertion) {
     return text;
 }
 
-
-
 function getAvailableTypes() {
-    return ["Inverted", "Spaced", "Inserted", "Zalgo"];
+    return ["Inverted", "Spaced", "Inserted", "Reversed", "Zalgo"];
 }
 
 export default {
     getAvailableTypes,
     getSpacedMemeText,
     getInvertedMemeText,
-    getMemeTextByType
-}
+    getMemeTextByType,
+};
