@@ -17,10 +17,6 @@
   "bugs": {
     "url": "https://github.com/benhawley7/benhawley.net/issues"
   },
-  "alias": {
-    "react": "preact-compat",
-    "react-dom": "preact-compat"
-  },
   "homepage": "https://github.com/benhawley7/benhawley.net#readme",
   "dependencies": {
     "express": "^4.16.4",

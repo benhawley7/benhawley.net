@@ -1,3 +1,4 @@
+// Instantiate a new Svelte App
 import App from './App.svelte';
 
 const app = new App({
