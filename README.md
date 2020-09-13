@@ -1,5 +1,5 @@
 # benhawley.net
-Personal Website and Porfolio of Work
+Personal Website and Portfolio of Work
 
 ## Built in Svelte
 As a learning project, I have reimplemented the website in Svelte.
